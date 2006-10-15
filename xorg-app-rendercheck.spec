@@ -2,7 +2,7 @@ Summary:	rendercheck application
 Summary(pl):	Aplikacja rendercheck
 Name:		xorg-app-rendercheck
 Version:	1.1
-Release:	0.1
+Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/app/rendercheck-%{version}.tar.bz2
