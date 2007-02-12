@@ -1,5 +1,5 @@
 Summary:	rendercheck application - simple tests of the X Render extension
-Summary(pl.UTF-8):   Aplikacja rendercheck - proste testy rozszerzenia X Render
+Summary(pl.UTF-8):	Aplikacja rendercheck - proste testy rozszerzenia X Render
 Name:		xorg-app-rendercheck
 Version:	1.2
 Release:	1
