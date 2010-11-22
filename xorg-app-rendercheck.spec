@@ -1,17 +1,18 @@
 Summary:	rendercheck application - simple tests of the X Render extension
 Summary(pl.UTF-8):	Aplikacja rendercheck - proste testy rozszerzenia X Render
 Name:		xorg-app-rendercheck
-Version:	1.3
+Version:	1.4
 Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/app/rendercheck-%{version}.tar.bz2
-# Source0-md5:	eb6a358b79b0aeaf03d56c5e1f394365
+# Source0-md5:	d0e7541004b9a1d8210a63fffebac139
 URL:		http://xorg.freedesktop.org/
-BuildRequires:	autoconf >= 2.57
+BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXrender-devel
+BuildRequires:	xorg-util-util-macros >= 1.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
