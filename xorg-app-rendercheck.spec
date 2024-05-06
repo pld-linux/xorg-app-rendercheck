@@ -1,20 +1,24 @@
 Summary:	rendercheck application - simple tests of the X Render extension
 Summary(pl.UTF-8):	Aplikacja rendercheck - proste testy rozszerzenia X Render
 Name:		xorg-app-rendercheck
-Version:	1.5
+Version:	1.6
 Release:	1
 License:	MIT
 Group:		X11/Applications
-Source0:	http://xorg.freedesktop.org/releases/individual/app/rendercheck-%{version}.tar.bz2
-# Source0-md5:	61d02044a2b1b1afb20334308bdca2d0
-URL:		http://xorg.freedesktop.org/
-BuildRequires:	autoconf >= 2.60
-BuildRequires:	automake
+Source0:	https://xorg.freedesktop.org/releases/individual/test/rendercheck-%{version}.tar.xz
+# Source0-md5:	4b3b862b4fad00a0ca9183df71b6bb42
+URL:		https://xorg.freedesktop.org/
+BuildRequires:	meson
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig >= 1:0.19
+BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXrender-devel
 BuildRequires:	xorg-proto-xproto-devel >= 7.0.17
 BuildRequires:	xorg-util-util-macros >= 1.8
+BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,24 +34,20 @@ rezultatu.
 %setup -q -n rendercheck-%{version}
 
 %build
-%{__aclocal}
-%{__autoconf}
-%{__automake}
-%configure
+%meson build
 
-%{__make}
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog COPYING NEWS README doc/TODO
+%doc AUTHORS COPYING NEWS README doc/TODO
 %attr(755,root,root) %{_bindir}/rendercheck
 %{_mandir}/man1/rendercheck.1*
